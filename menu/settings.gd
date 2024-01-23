@@ -12,17 +12,16 @@
 #See the License for the specific language governing permissions and
 #limitations under the License.
 
-extends CharacterBody2D
+extends Node
 
-const SPEED = 300.0
-var direction = Vector2.ZERO
+var difficulty: Difficulty = Difficulty.MEDIUM;
+var musicVolume: int = 60;
+var fxVolume: int = 75;
+var autosave: bool = true;
 
-func _physics_process(delta):
+enum Difficulty {
+	EASY,
+	MEDIUM,
+	HARD
+};
 
-	velocity = direction * SPEED;
-	move_and_slide()
-
-func _unhandled_input(event: InputEvent):
-	direction.x = Input.get_axis("ui_left", "ui_right");
-	direction.y = Input.get_axis("ui_up","ui_down");
-	direction = direction.normalized();

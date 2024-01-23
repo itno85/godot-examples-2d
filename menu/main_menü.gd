@@ -12,17 +12,13 @@
 #See the License for the specific language governing permissions and
 #limitations under the License.
 
-extends CharacterBody2D
+extends Control
 
-const SPEED = 300.0
-var direction = Vector2.ZERO
+func _on_play_pressed():
+	get_tree().change_scene_to_file("res://game.tscn")
 
-func _physics_process(delta):
+func _on_options_pressed():
+	get_tree().change_scene_to_file("res://options.tscn")
 
-	velocity = direction * SPEED;
-	move_and_slide()
-
-func _unhandled_input(event: InputEvent):
-	direction.x = Input.get_axis("ui_left", "ui_right");
-	direction.y = Input.get_axis("ui_up","ui_down");
-	direction = direction.normalized();
+func _on_exit_pressed():
+	get_tree().quit()

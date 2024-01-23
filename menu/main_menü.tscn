@@ -1,0 +1,55 @@
+;Copyright 2023 Tino Schnittke
+;
+;Licensed under the Apache License, Version 2.0 (the "License");
+;you may not use this file except in compliance with the License.
+;You may obtain a copy of the License at
+;
+;    http://www.apache.org/licenses/LICENSE-2.0
+;
+;Unless required by applicable law or agreed to in writing, software
+;distributed under the License is distributed on an "AS IS" BASIS,
+;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+;See the License for the specific language governing permissions and
+;limitations under the License.
+
+[gd_scene load_steps=2 format=3 uid="uid://dto6fws2rlwxg"]
+
+[ext_resource type="Script" path="res://main_menü.gd" id="1_miie8"]
+
+[node name="Main Menü" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_miie8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 300.0
+offset_right = 600.0
+offset_bottom = 417.0
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
